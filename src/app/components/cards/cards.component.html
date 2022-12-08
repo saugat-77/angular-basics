@@ -1,43 +1,32 @@
 
 <mat-card class="card">
-  
-    <mat-card-header>
-      <mat-card-title>{{title}}</mat-card-title>
+
+  <div class="card-container">
+
+    <mat-card class="card" *ngFor="let cardTitle of titles">
+
+     <mat-card-header>
+      <mat-card-title>{{cardTitle}}</mat-card-title>
       <mat-card-subtitle>{{likeCount}} Likes</mat-card-subtitle>
     </mat-card-header>
+
     <img mat-card-image [src]="imageUrl" alt="shiba">
+
     <mat-card-content>
-      <p>I am {{'running'}} on port {{port}}</p>
+      <p [ngClass]="isSpecial ? 'special' : ''">I am {{'running'}} on port {{port}}</p>
       <p [style.fontSize]="size">Server with Id {{server.id}} is {{server.status}}</p>
       <p [style]="style">Server status from method: {{getServerStatus()}}</p>
+
       <mat-form-field appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput [(ngModel)]="title">
+        <input matInput [(ngModel)]="titles">
       </mat-form-field>
+
     </mat-card-content>
+    
     <mat-card-actions>
         <button mat-button [disabled]="isLikeDisabled" (click)="onLike()">{{likeCount}} Likes</button>
         <button mat-button [disabled]="isShareDisabled" (click)="onShare()">{{shareCount}} Shares</button>
-    </mat-card-actions>
-
-    <mat-card-header>
-      <mat-card-title>{{title}}</mat-card-title>
-      <mat-card-subtitle>{{likeCount}} Likes</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="imageUrl" alt="shiba">
-    <mat-card-content>
-      <p>I am {{'running'}} on port {{port}}</p>
-      <p [style.fontSize]="size">Server with Id {{server.id}} is {{server.status}}</p>
-      <p [style]="style">Server status from method: {{getServerStatus()}}</p>
-      <mat-form-field appearance="fill">
-        <mat-label>Title</mat-label>
-        <input matInput [(ngModel)]="title">
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button [disabled]="isLikeDisabled" (click)="onLike()">{{likeCount}} Likes</button>
-        <button mat-button [disabled]="isShareDisabled" (click)="onShare()">{{shareCount}} Shares</button>
-    </mat-card-actions>
-
-
+    </mat-card-actions> 
   </mat-card>
+</div>
