@@ -1,1 +1,6 @@
-<app-cards [titles]="cardsTitle"></app-cards>
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-cards [titles]="cardsTitle" (titleEvent$)="addCard($event)"></app-cards>
+<app-data-grid [tableData]="periodicElements" [columnHeader]="columnHeader"></app-data-grid>
+<mat-card-title appSpecial>{{cardsTitle}}</mat-card-title>
+

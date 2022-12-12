@@ -9,7 +9,7 @@ export class CardsComponent {
 
   imageUrl: string = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
   isLikeDisabled: boolean = false;
-  isShareDisabled: boolean = false;
+  isShareDisabled: boolean = true;
   // titles: string[] = ['Maia', 'Dylan', 'Minoru', 'Amarachi', 'Ceallagh'];
   port: number = 4200;
   likeCount: number =0;
@@ -21,6 +21,7 @@ export class CardsComponent {
   @Input() titles: string[] = [];
 
   @Output() titleEvent$ = new EventEmitter<string>();
+  cardTitle: string="Shiba";
 
   onAddCard(title: string): void {
     this.titleEvent$.emit(title);
@@ -29,6 +30,10 @@ export class CardsComponent {
   onLike(): void {
     this.likeCount++;
     // alert('You liked Shiba!');
+  }
+  deleteCard():void{
+    console.log("Deleted");
+    // alert("Deleted");
   }
 
   onShare(): void{
